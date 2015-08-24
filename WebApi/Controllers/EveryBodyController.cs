@@ -18,10 +18,41 @@ namespace WebApi.Controllers
         private WebApiContext db = new WebApiContext();
 
         // GET api/EveryBody
-        public IQueryable<EveryBody> GetEveryBody()
+    //original
+        //public IQueryable<EveryBody> GetEveryBody()
+        //{
+        //    return db.EveryBody;
+        //}
+
+
+        public IHttpActionResult GetEveryBody()
         {
-            return db.EveryBody;
+            var abc = PopulateRequestList();
+            return Ok(abc);
+            //return db.ProductOwner.Where(d => d.Approval == false);
+            //return db.EveryBody;
         }
+
+        private List<ProductOwner> PopulateRequestList()
+        {
+            var all = db.ProductOwner.Where(d => d.Approval == false);
+            var viewModel = new List<ProductOwner>();
+            foreach (var request in all)
+            {
+                viewModel.Add(new ProductOwner
+                {
+                    OwnerName = request.OwnerName,
+                    CompanyName = request.CompanyName,
+                    Email = request.Email,
+                    ID = request.ID
+                });
+            }
+
+
+            return viewModel;
+        }
+
+
 
         // GET api/EveryBody/5
         //  //original
