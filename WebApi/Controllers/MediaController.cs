@@ -34,15 +34,11 @@ namespace WebApi.Controllers
 
         public IHttpActionResult GetMedia(int id)
         {
-
             Update up = db.Update
                 .Include(i => i.Media).Where(i => i.UpdateID == id)
                 .Single();
-            //var endUserProducts = new HashSet<int>(endUser.ProductNews.Select(c => c.ProductID));
             var abc = PopulateAssignedMediaData(up);
             return Ok(abc);
-            //original
-            //return db.EveryBody;
         }
 
         private List<Media> PopulateAssignedMediaData(Update up)
@@ -156,38 +152,19 @@ namespace WebApi.Controllers
 
                 //}
 
-
                 Media up = new Media()
                 {
                     MediaName = media.MediaName,
                     Update_ID = id
                     // MediaUpdateDate = DateTime.Now
                 };
-
                 db.Media.Add(up);
                 db.SaveChanges();
             }     
 
             return CreatedAtRoute("DefaultApi", new { id = media.MediaID }, media);
         }
-
-
-        //// POST api/Media2123/5
-        //[ResponseType(typeof(Media))]
-        //public IHttpActionResult PostMedia(Media media)
-        //{
-        //    //original
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    db.Media.Add(media);
-        //    db.SaveChanges();
-
-        //    return CreatedAtRoute("DefaultApi", new { id = media.MediaID }, media);
-        //}
-
+        
         // DELETE api/Media/5
         [ResponseType(typeof(Media))]
         public IHttpActionResult DeleteMedia(int id)
