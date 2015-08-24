@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Update</title>
+</head>
+<body>
+    <h3>Update</h3>
+    <table id="tblContainer" data-ng-controller="enduserupdateController">
+        <tr>
+            <td>
+                <table class="table">  
+                    <tr>
+                        <th>Introduction</th>
+                        <th>Detail</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tbody data-ng-repeat="update in Update">
+                        <tr>
+                            <td><span>{{update.updateIntro}}</span></td>
+                            <td><span>{{update.updateDetail}}</span></td>
+                            <td>
+                                <input type="button" id="AddUpdate" value="View Media" data-ng-click="addmedia(update)" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/services/enduserupdateService.js"></script>
+    <script src="app/controllers/enduserupdateController.js"></script>
+</body>
+</html>
+

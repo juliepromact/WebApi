@@ -1,0 +1,44 @@
+﻿
+<table id="tblContainer" data-ng-controller="signuprequestController">
+    <tr>
+        <td>
+            <!--<table style="border: solid 2px Green; padding: 5px;">-->
+            <table class="table-bordered">
+                <!--<tr style="height: 30px; background-color: skyblue; color: maroon;">-->
+                <tr>
+                    <th class="col-md-10">Owner</th>
+                    <th class="col-md-10">Company</th>
+                    <th class="col-md-10">Email</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tbody data-ng-repeat="stud in ProductOwner">
+                    <tr>
+
+                        <td class="col-md-10"><span>{{stud.ownerName}}</span></td>
+                        <td class="col-md-10"><span>{{stud.companyName}}</span></td>
+                        <td class="col-md-10"><span>{{stud.email}}</span></td>
+                        <td>
+                            <input type="button" id="Aproove" value="Aproove" data-ng-click="get(stud)" />
+                        </td>
+
+                        <td>
+                            <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+            <div style="color: red;">{{Message}}</div>
+        </td>
+    </tr>
+</table>
+
+
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="app/app.js"></script>
+<script src="app/services/signuprequestService.js"></script>
+<script src="app/controllers/signuprequestController.js"></script> 

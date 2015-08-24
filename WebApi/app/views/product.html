@@ -1,0 +1,78 @@
+﻿
+    <table id="tblContainer" data-ng-controller="productController">
+        {{ProductNew}}
+    <!--@*
+    <table id="tblContainer" data-ng-controller="CRUD_OperController">
+        *@-->
+    <tr>
+        <td>
+            <!--<table style="border: solid 2px Green; padding: 5px;">-->
+            <table class="table-bordered">
+                <!--<tr style="height: 30px; background-color: skyblue; color: maroon;">-->
+                <tr>
+                    <!--<th class="col-md-10">ID</th>-->
+                    <th class="col-md-10">Name</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tbody data-ng-repeat="stud in ProductNew" ng-show="stud.assigned">
+                    <tr>
+
+                        <!--<td class="col-md-10"><span>{{stud.productID}}</span></td>-->
+                        <td class="col-md-10"><span>{{stud.productName}}</span></td>
+
+                        <td>
+                            <input type="button" id="Edit" value="Edit" data-ng-click="get(stud)" />
+                        </td>
+
+                        <td>
+                            <input type="button" id="Delete" value="Delete" data-ng-click="delete(stud)" />
+                        </td>
+
+                        <td>
+                             <!--<button ng-click="customNavigate('Mike')">Rename Show</button>-->
+                             <input type="button" id="AddUpdate" value="Add Update" data-ng-click="addupdate(stud)" />
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="color: red;">{{Message}}</div>
+            <table style="border: solid 4px Red; padding: 2px;">
+               
+                <tr>
+                    <td></td>
+                    <td>
+                        <span>Product Name</span>
+                    </td>
+                    <td>
+                        <!--<input type="text" id="sName" required data-ng-model="ProductName" />-->
+                        <input type="text" id="ProductName" required data-ng-model="ProductName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <input type="button" id="save" value="Save" data-ng-click="save()" />
+
+                        <input type="button" id="Clear" value="Clear" data-ng-click="clear()" />
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+
+</table>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="app/app.js"></script>
+<script src="app/services/CRUD_OperService.js"></script>
+<script src="app/controllers/productController.js"></script> 

@@ -1,0 +1,19 @@
+﻿
+<form class="form-login" role="form">
+
+    <h2 class="form-group">Request Invitation</h2>
+
+    <input type="text" class="form-control" placeholder="Username" id="OwnerName" data-ng-model="OwnerName" required autofocus>
+    <input type="text" class="form-control" placeholder="Company Name" data-ng-model="CompanyName" required>
+    <input type="text" class="form-control" placeholder="Email" data-ng-model="Email" required>
+    <!--<button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="signUp()">Submit</button>-->
+    <button class="btn btn-info" type="submit" ng-click="request()">Request</button>
+    <!--<div data-ng-hide="Message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">-->
+    <!--<div>
+        {{Message}}
+    </div>-->
+    <div data-ng-hide="Message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+        {{Message}}
+    </div>
+
+</form>

@@ -1,0 +1,17 @@
+﻿<div  data-ng-controller="enduserController" id="tblContainer">
+
+        <div data-ng-repeat="stud in EndUser">
+            <div>
+                <input type="checkbox" value="{{stud}}" name="selectedProducts" ng-model="stud.assigned" ng-checked="stud.assigned" />
+                <span>{{stud.productName}}</span>
+            </div>
+        </div>
+    <input type="submit" value="Follow" class="btn btn-default" ng-click="save(EndUser)" /> 
+</div>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="app/app.js"></script>
+<script src="app/services/enduserService.js"></script>
+<script src="app/controllers/enduserController.js"></script> 
+

@@ -1,0 +1,8 @@
+﻿@using test.Models.ViewModels;
+@model AssignedProductData
+
+<fieldset>
+    @Html.HiddenFor(model => model.ProductID)
+    @Html.CheckBoxFor(model => model.Assigned)
+    @Html.DisplayFor(model => model.ProductName, new { @class = "control-label col-md-2" })
+</fieldset>

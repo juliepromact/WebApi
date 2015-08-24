@@ -1,0 +1,57 @@
+﻿<div>
+    <form name="myForm">
+        <fieldset>
+            <legend>Upload on form submit</legend>
+            Username: <input name="userName" ng-model="username" size="39" required="" type="text">
+            <i ng-show="myForm.userName.$error.required">*required</i><br>
+            Profile Picture: <input ngf-select="" ng-model="picFile" name="file" accept="image/*" required="" type="file">
+            <i ng-show="myForm.file.$error.required">*required</i>
+            <br>
+
+            <button ng-disabled="!myForm.$valid" ng-click="uploadPic(picFile)">Submit</button>
+            <img ng-show="picFile != null" ngf-src="picFile" class="thumb">
+            <span class="progress" ng-show="picFile.progress >= 0">
+                <div class="ng-binding" style="width:{{picFile.progress}}%" ng-bind="picFile.progress + '%'"></div>
+            </span>
+            <span ng-show="picFile.result">Upload Successful</span>
+        </fieldset>
+        <br>
+    </form>
+</div>
+<fieldset>
+    <legend>Play with options</legend>
+    <div class="up-buttons">
+        <div ngf-select="" ngf-drop="" ng-model="files" ng-model-rejected="rejFiles" ngf-multiple="multiple" ngf-accept="accept" accept="{{acceptSelect}}" ng-disabled="disabled" ngf-capture="capture" ngf-drag-over-class="{accept:'dragover', reject:'dragover-err', delay:100}" ngf-min-size="minSize" ngf-max-size="maxSize" ngf-keep="keep" ngf-keep-distinct="keepDistinct" ngf-reset-on-click="resetOnClick" ngf-reset-model-on-click="resetModelOnClick" ngf-allow-dir="allowDir" class="drop-box" ngf-drop-available="dropAvailable">
+            Select File,
+            <span ng-show="dropAvailable">Drop File or Paste Image</span>
+        </div>
+        <br>
+    </div>
+    <div class="custom">
+        <label>ngf-accept (accept/reject file model): <input ng-model="accept" type="text"></label><br>
+        <label>accept (for select browser dependent): <input ng-model="acceptSelect" type="text"></label><br>
+        <label>ngf-capture (for mobile): <input ng-model="capture" type="text"></label><br>
+        <label>ngf-min-size: <input ng-model="minSize" type="text"></label><br>
+        <label>ngf-max-size: <input ng-model="maxSize" type="text"></label><br>
+        <label><input ng-model="multiple" type="checkbox">ngf-multiple (allow multiple files)</label><br>
+        <label><input ng-model="disabled" type="checkbox">ng-disabled</label><br>
+        <label><input ng-model="allowDir" type="checkbox">ngf-allow-dir (allow directory drop Chrome only)</label><br>
+        <label><input ng-model="keep" type="checkbox">ngf-keep (keep the previous model values in ng-model)</label><br>
+        <label><input ng-model="keepDistinct" type="checkbox">ngf-keep-distinct (do not allow duplicates)</label><br>
+        <label>
+            <input ng-model="resetOnClick" type="checkbox">ngf-reset-on-click (reset file input and model on
+            click)
+        </label><br>
+        <label>
+            <input ng-model="resetModelOnClick" type="checkbox">ngf-reset-model-on-click (reset model on
+            click)
+        </label><br>
+    </div>
+    <div class="preview">
+        <div>Preview image/audio/video:</div>
+        <img ngf-src="files[0]" ng-show="files[0].type.indexOf('image') > -1" ngf-accept="'image/*'">
+        <audio controls="" ngf-src="files[0]" ng-show="files[0].type.indexOf('audio') > -1" ngf-accept="'audio/*'"></audio>
+        <video controls="" ngf-src="files[0]" ng-show="files[0].type.indexOf('video') > -1" ngf-accept="'video/*'"></video>
+    </div>
+</fieldset>
+<br>
